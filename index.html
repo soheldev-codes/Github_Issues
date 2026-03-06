@@ -13,7 +13,44 @@
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
   </head>
   <body>
-    <h1 class="text-2xl text-red-200">Hello Word</h1>
+    <div class="flex items-center justify-center h-screen">
+      <div class="card bg-base-100 w-full max-w-md shadow-2xl">
+        <div class="pt-8 flex flex-col items-center">
+          <img src="./Images/Github.png" alt="" srcset="" />
+          <h2 class="mt-6 text-2xl font-bold">GitHub Issues Tracker</h2>
+          <p>Sign in to manage your issues</p>
+        </div>
+        <form id="loginForm" class="card-body">
+          <fieldset class="fieldset">
+            <label class="label">Username</label>
+            <input
+              id="username"
+              type="text"
+              class="input outline-none w-full"
+              placeholder="Enter Username"
+            />
+            <label class="label">Password</label>
+            <input
+              id="password"
+              type="password"
+              class="input outline-none w-full"
+              placeholder="Enter Password"
+            />
+
+            <button type="submit" class="btn btn-primary mt-4">Sign In</button>
+          </fieldset>
+          <p id="error" class="text-red-500 text-sm"></p>
+          <div class="divider">OR</div>
+          <div class="text-center">
+            <p class="font-semibold">Demo Credentials</p>
+            <div class="bg-[#F8FAFC] py-6 rounded mt-4">
+              <p>Username: admin</p>
+              <p>Password: admin123</p>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
     <!-- Js file cannected -->
     <script src="./Js/Login.js"></script>
   </body>
