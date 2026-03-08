@@ -58,9 +58,9 @@
         class="container mx-auto bg-white p-6 rounded-md mt-16 shadow-sm"
       >
         <div class="flex gap-2">
-          <button class="btn btn-primary">All</button>
-          <button class="btn">Open</button>
-          <button class="btn">Closed</button>
+          <button class="btn tab-btn btn-primary" data-status="all">All</button>
+          <button class="btn tab-btn" data-status="open">Open</button>
+          <button class="btn tab-btn" data-status="closed">Closed</button>
         </div>
       </section>
 
@@ -89,10 +89,17 @@
                 Open</span
               >
               <span class="flex items-center gap-2"
-                ><div class="badge badge-secondary badge-xs"></div>
+                ><div class="badge bg-purple-500 badge-xs"></div>
                 Closed</span
               >
             </div>
+          </div>
+
+          <!-- Spiner -->
+          <div id="loader" class="flex justify-center items-center py-20">
+            <span
+              class="loading loading-spinner loading-lg text-primary"
+            ></span>
           </div>
 
           <!-- Issues Container -->

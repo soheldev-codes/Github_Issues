@@ -2,15 +2,59 @@
 
 const url = "https://phi-lab-server.vercel.app/api/v1/lab/issues"
 
-const loadIssues = async () => {
-    const res = await fetch(url)
-    const data = await res.json()
-    // Issues Count
-    issuesCountShow(data.data)   
+const loader = document.getElementById("loader");
 
-    // Display Data Pass
-    diplayIsuues(data.data)
+let allIssues = [];
+
+const loadIssues = async () => {
+
+  loader.style.display = "flex";
+  
+    const res = await fetch(url)
+  const data = await res.json()
+  
+  loader.style.display = "none"; 
+    
+     allIssues = data.data; 
+
+  issuesCountShow(allIssues);
+  diplayIsuues(allIssues);
 }
+
+
+const tabBtns = document.querySelectorAll(".tab-btn");
+
+tabBtns.forEach(btn => {
+
+  btn.addEventListener("click", function () {
+
+    // remove active style
+    tabBtns.forEach(b => b.classList.remove("btn-primary"));
+
+    // add active style
+    this.classList.add("btn-primary");
+
+    const status = this.dataset.status;
+
+    if (status === "all") {
+      diplayIsuues(allIssues);
+      issuesCountShow(allIssues);
+    } else {
+
+      const filtered = allIssues.filter(issue => issue.status === status);
+
+      diplayIsuues(filtered);
+      issuesCountShow(filtered);
+    }
+
+  });
+
+});
+
+
+
+
+
 
 const issuesCountShow = (data) => {
     const issuesCount = document.getElementById("issuseCount")
@@ -31,7 +75,9 @@ const diplayIsuues = (issues) => {
         console.log(issue);
 
         const div = document.createElement("div")
-        div.classList = "max-w-sm rounded-xl border border-green-500 border-t-6 bg-white shadow-md p-5 space-y-4"
+        div.classList = `max-w-sm rounded-xl border ${status === "open"
+  ? "border-t-4 border-green-500"
+  : "border-t-4 border-purple-500"} bg-white shadow-md p-5 space-y-4`
         
         div.innerHTML = `
         <div class="flex items-center justify-between">
@@ -84,13 +130,6 @@ const diplayIsuues = (issues) => {
 
          issuesContainer.appendChild(div)
     });
-
-
-   
-
-
-
-    
 
 }
 
