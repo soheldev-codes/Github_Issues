@@ -153,13 +153,13 @@ const diplayIsuues = (issues) => {
             <div class="flex gap-2">
                ${
     labels[0]
-      ? `<span class="text-xs font-medium px-3 py-1 rounded-full bg-red-100 text-red-500">🐞 ${labels[0]}</span>`
+      ? `<span class="text-xs font-medium px-3 py-1 rounded-full bg-red-100 text-red-500">${labels[0]}</span>`
       : ""
   }
 
   ${
     labels[1]
-      ? `<span class="text-xs font-medium px-3 py-1 rounded-full bg-yellow-100 text-yellow-600">⚡ ${labels[1]}</span>`
+      ? `<span class="text-xs font-medium px-3 py-1 rounded-full bg-yellow-100 text-yellow-600">${labels[1]}</span>`
       : ""
   }
             </div>
