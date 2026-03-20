@@ -16,7 +16,3 @@ A modern and responsive Issue Tracker web application inspired by GitHub, where 
 
 🛠 Technologies Used
 HTML,CSS,JavaScript,Tailwind CSS
-
-🔗 Links
-🌐 Live Site: [Your Live Link]
-💻 GitHub Repo: [Your Repo Link]
